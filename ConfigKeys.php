@@ -933,6 +933,19 @@ $keys = array(
 		'default' => false
 	),
 
+	'lazyloading.configuration_overloaded' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyloading.enabled' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+    'lazyload.reject.files' => array(
+        'type' => 'array',
+        'default' => array()
+    ),
+
 	'cdn.configuration_overloaded' => array(
 		'type' => 'boolean',
 		'default' => false
