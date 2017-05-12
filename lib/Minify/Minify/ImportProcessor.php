@@ -53,6 +53,7 @@ class Minify_ImportProcessor {
 
     private function _getContent($file, $is_imported = false)
     {
+        $file = preg_replace('~\\?.*~', '', $file);
         $file = realpath($file);
         if (! $file
             || in_array($file, self::$filesIncluded)
@@ -152,7 +153,7 @@ class Minify_ImportProcessor {
                 $path = $this->_currentDir
                     . DIRECTORY_SEPARATOR . strtr($url, '/', DIRECTORY_SEPARATOR);
                 // update the relative path by the directory of the file that imported this one
-                $url = self::getPathDiff(realpath($this->_previewsDir), $path);
+                $url = $this->getPathDiff(realpath($this->_previewsDir), $path);
             }
         }
         return "url({$quote}{$url}{$quote})";
