@@ -16,6 +16,7 @@ echo sprintf( 'The plugin is currently %1$s If an option is disabled it means th
     <button id="tablink_general" class="w3tc-bar-item w3tc-button tablink w3tc-blue" onclick="w3tc_openTab(event,'general', 'general')">General</button>
     <button id="tablink_page_cache" class="w3tc-bar-item w3tc-button tablink" onclick="w3tc_openTab(event,'page_cache', 'general')">Page Cache</button>
     <button id="tablink_minify" class="w3tc-bar-item w3tc-button tablink" data-tab-index="1" onclick="w3tc_openTab(event,'minify', 'general')">Minify</button>
+    <button id="tablink_lazy_loading" class="w3tc-bar-item w3tc-button tablink" data-tab-index="1" onclick="w3tc_openTab(event,'lazy_loading', 'general')">Lazy loading</button>
     <button id="tablink_opcache" class="w3tc-bar-item w3tc-button tablink" data-tab-index="1" onclick="w3tc_openTab(event,'opcache', 'general')">Opcache</button>
     <button id="tablink_database_cache" class="w3tc-bar-item w3tc-button tablink" onclick="w3tc_openTab(event,'database_cache', 'general')">Database Cache</button>
     <button id="tablink_browser_cache" class="w3tc-bar-item w3tc-button tablink" onclick="w3tc_openTab(event,'browser_cache', 'general')">Browser Cache</button>
@@ -221,7 +222,7 @@ Util_Ui::button_config_save( 'general_minify',
 ?>
         <?php Util_Ui::postbox_footer(); ?>
         </div>
-        <div id="tab_opcache" class="tab" style="display:none">
+        <div id="tab_lazy_loading" class="tab" style="display:none">
         <?php
         Util_Ui::postbox_header( __( 'Lazy loading', 'w3-total-cache' ), '', 'lazy_loading' );
         Util_Ui::config_overloading_button( array(
@@ -256,7 +257,8 @@ Util_Ui::button_config_save( 'general_minify',
             ' class="button" />' );
         ?>
         <?php Util_Ui::postbox_footer(); ?>
-
+        </div>
+        <div id="tab_opcache" class="tab" style="display:none">
         <?php
 
 do_action( 'w3tc_settings_general_boxarea_system_opcache' ) ?>
