@@ -197,6 +197,41 @@ Util_Ui::button_config_save( 'general_minify',
 
 
         <?php
+        Util_Ui::postbox_header( __( 'Lazy loading', 'w3-total-cache' ), '', 'lazy_loading' );
+        Util_Ui::config_overloading_button( array(
+            'key' => 'lazyloading.configuration_overloaded'
+        ) );
+        ?>
+        <p><?php _e( 'Use Lazy Loading for images.', 'w3-total-cache' ); ?></p>
+
+        <table class="form-table">
+            <?php
+            Util_Ui::config_item( array(
+                'key' => 'lazyloading.enabled',
+                'control' => 'checkbox',
+                'checkbox_label' => __( 'Enable', 'w3-total-cache' ),
+                'description' => __( 'Lazy loading can decrease page loading time.', 'w3-total-cache' )
+            ) );
+            ?>
+            <th><label for="lazyload_reject_files"><?php Util_Ui::e_config_label( 'lazyload.reject.files' ) ?></label></th>
+            <td>
+            <textarea id="lazyload_reject_files" name="lazyload__reject__files"
+                <?php Util_Ui::sealing_disabled( 'pgcache' ) ?>
+                      cols="40" rows="5"><?php echo esc_textarea( implode( "\r\n", $this->_config->get_array('lazyload.reject.files' ) ) ); ?></textarea><br />
+                <span class="description"><?php _e( 'Never use Lazy loading for these files. Regexp supported.', 'w3-total-cache' ); ?></span>
+            </td>
+        </table>
+
+        <?php
+        Util_Ui::button_config_save( 'lazy_loading',
+            '<input type="submit" name="w3tc_flush_minify" value="' .
+            __( 'Empty cache', 'w3-total-cache' ) . '" ' .
+            ( $minify_enabled ? '' : ' disabled="disabled" ' ) .
+            ' class="button" />' );
+        ?>
+        <?php Util_Ui::postbox_footer(); ?>
+
+        <?php
 
 do_action( 'w3tc_settings_general_boxarea_system_opcache' ) ?>
         <?php
