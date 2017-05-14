@@ -41,9 +41,9 @@ class Minify0_Utils
      */
     public static function hslToRgb($hslValues)
     {
-        $h = floatval($hslValues[0]);
-        $s = floatval(str_replace('%', '', $hslValues[1]));
-        $l = floatval(str_replace('%', '', $hslValues[2]));
+        $h = (float)$hslValues[0];
+        $s = (float)str_replace('%', '', $hslValues[1]);
+        $l = (float)str_replace('%', '', $hslValues[2]);
 
         // Wrap and clamp, then fraction!
         $h = ((($h % 360) + 360) % 360) / 360;
@@ -98,7 +98,7 @@ class Minify0_Utils
     {
         if (is_string($size)) {
             $letter = substr($size, -1);
-            $size = intval($size);
+            $size = (int)$size;
             switch ($letter) {
                 case 'M':
                 case 'm':
@@ -122,7 +122,7 @@ class Minify0_Utils
     public static function rgbPercentageToRgbInteger($rgbPercentage)
     {
         if (strpos($rgbPercentage, '%') !== false) {
-            $rgbPercentage = self::roundNumber(floatval(str_replace('%', '', $rgbPercentage)) * 2.55);
+            $rgbPercentage = self::roundNumber((float)str_replace('%', '', $rgbPercentage) * 2.55);
         }
 
         return intval($rgbPercentage, 10);
@@ -152,6 +152,6 @@ class Minify0_Utils
      */
     public static function roundNumber($n)
     {
-        return intval(round(floatval($n)), 10);
+        return intval(round((float)$n), 10);
     }
 }

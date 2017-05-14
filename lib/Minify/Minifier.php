@@ -204,7 +204,7 @@ class Minify0_Minifier
 
         // Restore preserved comments and strings
         foreach ($this->preservedTokens as $tokenId => $token) {
-            $css = preg_replace('/'. $tokenId .'/', Utils::escapeReplacementString($token), $css, 1);
+            $css = preg_replace('/'. $tokenId .'/', Minify0_Utils::escapeReplacementString($token), $css, 1);
         }
 
         return trim($css);
@@ -744,7 +744,7 @@ class Minify0_Minifier
         // one, maybe more? put'em back then
         if (($pos = strpos($match, self::COMMENT)) !== false) {
             foreach ($this->comments as $commentId => $comment) {
-                $match = preg_replace('/'. $commentId .'/', Utils::escapeReplacementString($comment), $match, 1);
+                $match = preg_replace('/'. $commentId .'/', Minify0_Utils::escapeReplacementString($comment), $match, 1);
             }
         }
 
@@ -818,7 +818,7 @@ class Minify0_Minifier
      */
     private function rgbToHexCallback($matches)
     {
-        $hexColors = Utils::rgbToHex(explode(',', $matches[1]));
+        $hexColors = Minify0_Utils::rgbToHex(explode(',', $matches[1]));
         return $this->getHexColorStringFromHexColorsList($hexColors, $matches[2]);
     }
 
@@ -830,8 +830,8 @@ class Minify0_Minifier
     private function hslToHexCallback($matches)
     {
         $hslValues = explode(',', $matches[1]);
-        $rgbColors = Utils::hslToRgb($hslValues);
-        $hexColors = Utils::rgbToHex($rgbColors);
+        $rgbColors = Minify0_Utils::hslToRgb($hslValues);
+        $hexColors = Minify0_Utils::rgbToHex($rgbColors);
         return $this->getHexColorStringFromHexColorsList($hexColors, $matches[2]);
     }
 
