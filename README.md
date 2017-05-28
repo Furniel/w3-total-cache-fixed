@@ -37,7 +37,7 @@ Make sure you select the correct generation that fits your environment.
 
 ### Fixes, Improvements, & Enhancement Highlights
 
-Since the last [official release](https://wordpress.org/plugins/w3-total-cache/) of W3 Total Cache (v0.9.5.2), the following new features, bug fixes, and updates have been applied to this repository's [v0.9.5.x](https://github.com/szepeviktor/w3-total-cache-fixed/tree/v0.9.5.x) branch, which has its base already synced to v0.9.5.2:
+Since the last [official release](https://wordpress.org/plugins/w3-total-cache/) of W3 Total Cache (v0.9.5.4), the following new features, bug fixes, and updates have been applied to this repository's [v0.9.5.x](https://github.com/szepeviktor/w3-total-cache-fixed/tree/v0.9.5.x) branch, which has its base already synced to v0.9.5.4:
 
 Type | More Information |
 :--- | --- |
@@ -60,7 +60,7 @@ Type | More Information |
 :beetle: Bug Fix | [Configuration Bug &ndash; Redis/Memcached Server Entries](https://github.com/szepeviktor/w3-total-cache-fixed/pull/367) |
 :beetle: Bug Fix | [Undefined Variable: _is_amp_endpoint_](https://github.com/szepeviktor/w3-total-cache-fixed/pull/370) |
 :beetle: Bug Fix | [Error Message: _Trying to Get Property of Non-Object_](https://github.com/szepeviktor/w3-total-cache-fixed/pull/376) |
-:diamond_shape_with_a_dot_inside: Update | [Page Cache &ndash; _Accepted Query Strings_ Enhancement](https://github.com/szepeviktor/w3-total-cache-fixed/pull/380) |
+:diamond_shape_with_a_dot_inside: Update | [Page Cache &ndash; _Accepted Query Strings_ Enhancement](https://github.com/szepeviktor/w3-total-cache-fixed/pull/380)<br>:wrench: [+ **Extra: #PR489** &ndash; Fix all querystring keys starting with name specified will match](https://github.com/szepeviktor/w3-total-cache-fixed/pull/489) |
 :beetle: Bug Fix | [Incorrect Use of Removing Query String From URLs](https://github.com/szepeviktor/w3-total-cache-fixed/pull/382) |
 :diamond_shape_with_a_dot_inside: Update | [Enhance _remove_query()_ to Recognize Other Ampersand Forms](https://github.com/szepeviktor/w3-total-cache-fixed/pull/383) |
 :beetle: Bug Fix | [WP Query String Being Stripped Unexpectedly](https://github.com/szepeviktor/w3-total-cache-fixed/pull/384) |
@@ -81,10 +81,15 @@ Type | More Information |
 :beetle: Bug Fix | [YUI Compressor fix for JAVA path](https://github.com/szepeviktor/w3-total-cache-fixed/pull/426) |
 :beetle: Bug Fix | [Closure Compiler fix for JAVA path](https://github.com/szepeviktor/w3-total-cache-fixed/pull/428) |
 :beetle: Bug Fix | [Fixed Redis Test on Admin Dashboard](https://github.com/szepeviktor/w3-total-cache-fixed/pull/430) |
-:cyclone: New Feature | [Extends "http 2 push" to page cache enhanced](https://github.com/szepeviktor/w3-total-cache-fixed/pull/433)<br>:wrench: [+ **Extra: #PR320** &ndash; Support for more than 50 assets](https://github.com/szepeviktor/w3-total-cache-fixed/pull/450) |
+:cyclone: New Feature | [Extends "http 2 push" to page cache enhanced](https://github.com/szepeviktor/w3-total-cache-fixed/pull/433)<br>:wrench: [+ **Extra: #PR320** &ndash; Support for more than 50 assets](https://github.com/szepeviktor/w3-total-cache-fixed/pull/450)<br>:wrench: [+ **Extra: #PR491** &ndash; Fix collects headers from top directory](https://github.com/szepeviktor/w3-total-cache-fixed/pull/491) |
 :beetle: Bug Fix | [Fixed Object Cache setting cache value on missed gets](https://github.com/szepeviktor/w3-total-cache-fixed/issues/438) |
 :beetle: Bug Fix | [Call to a member function using_index_permalinks() on null](https://github.com/szepeviktor/w3-total-cache-fixed/issues/445) |
 :beetle: Bug Fix | [stristr(): Empty needle](https://github.com/szepeviktor/w3-total-cache-fixed/issues/447) |
 :beetle: Bug Fix | [Media Library Export skips files](https://github.com/szepeviktor/w3-total-cache-fixed/pull/452) |
 :beetle: Bug Fix | [Fixed semicolon bug & added woff2](https://github.com/szepeviktor/w3-total-cache-fixed/pull/457) |
 :diamond_shape_with_a_dot_inside: Update | [Colored self test window](https://github.com/szepeviktor/w3-total-cache-fixed/pull/478) |
+:beetle: Bug Fix | [Fixed Redis DB selection in persistent connection mode](https://github.com/szepeviktor/w3-total-cache-fixed/pull/483) |
+:beetle: Bug Fix | [Fixed wrong == in ObjectCache_WpObjectCache_Regular.php](https://github.com/szepeviktor/w3-total-cache-fixed/pull/486) |
+:beetle: Bug Fix | [Missing commas in Generic_Page_Dashboard_View.css](https://github.com/szepeviktor/w3-total-cache-fixed/pull/487) |
+:beetle: Bug Fix | [Remove uninitialized variable](https://github.com/szepeviktor/w3-total-cache-fixed/pull/488) |
+:beetle: Bug Fix | [Fix page cache .htaccess for Windows](https://github.com/szepeviktor/w3-total-cache-fixed/pull/490) |

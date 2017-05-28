@@ -609,7 +609,7 @@ class PgCache_Environment {
            $rules .= "    RewriteRule ^ - [E=W3TC_QUERY_STRING:%{QUERY_STRING}]\n";
 
            foreach ( $w3tc_query_strings as $query ) {
-               $query .=  ( strpos( $query, '=' ) === false ? '.*?' : '' );
+               $query .=  ( strpos( $query, '=' ) === false ? '=.*?' : '' );
                $rules .= "    RewriteCond %{ENV:W3TC_QUERY_STRING} ^(.*?&|)".$query."(&.*|)$ [NC]\n";
                $rules .= "    RewriteRule ^ - [E=W3TC_QUERY_STRING:%1%2]\n";
            }
@@ -703,7 +703,8 @@ class PgCache_Environment {
 			$env_W3TC_SSL = '%{ENV:W3TC_SSL}';
 		}
 
-		$cache_path = str_replace( Util_Environment::document_root(), '', $cache_dir );
+		$document_root = str_replace('\\', '/', Util_Environment::document_root());
+		$cache_path = str_replace($document_root, '', $cache_dir);
 
 		/**
 		 * Set Accept-Encoding

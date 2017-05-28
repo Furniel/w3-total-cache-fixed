@@ -35,6 +35,7 @@ class Minify_ClosureCompiler {
 
     const OPTION_CHARSET = 'charset';
     const OPTION_COMPILATION_LEVEL = 'compilation_level';
+    const WARNING_LEVEL = 'warning_level';
 
     public static $isDebug = false;
 
@@ -73,25 +74,26 @@ class Minify_ClosureCompiler {
      *
      * @throws Minify_ClosureCompiler_Exception
      */
-    public static function minify($js, $options = array())
+    public static function minify($js, array $options = array())
     {
         self::_prepare();
-        if (! ($tmpFile = tempnam(self::$tempDir, 'cc_'))) {
+        if (!($tmpFile = tempnam(self::$tempDir, 'cc_'))) {
             throw new Minify_ClosureCompiler_Exception('Minify_ClosureCompiler : could not create temp file in "'.self::$tempDir.'".');
         }
         file_put_contents($tmpFile, $js);
         $cmd = self::_getCmd($options, $tmpFile);
         exec($cmd, $output, $result_code);
         unlink($tmpFile);
-        if ($result_code != 0) {
-            $message = 'Minify_ClosureCompiler : Closure Compiler execution failed.';
-            if (self::$isDebug) { 
-                exec($cmd . ' 2>&1', $error);
-                if ($error) {
-                    $message .= "\nReason:\n" . join("\n", $error);
-                }
-            } 
-            throw new Minify_ClosureCompiler_Exception($message);
+        if ($result_code > 0) {
+            //$message = 'Minify_ClosureCompiler : Closure Compiler execution failed.';
+            //if (self::$isDebug) {
+            //    exec($cmd . ' 2>&1', $error);
+            //    if ($error) {
+            //        $message .= "\nReason:\n" . implode("\n", $error);
+            //    }
+            //}
+            return $js;
+            //throw new Minify_ClosureCompiler_Exception($message);
         }
         return implode("\n", $output);
     }
@@ -102,6 +104,7 @@ class Minify_ClosureCompiler {
             array(
                 self::OPTION_CHARSET => 'utf-8',
                 self::OPTION_COMPILATION_LEVEL => 'SIMPLE_OPTIMIZATIONS',
+                self::WARNING_LEVEL => 'QUIET',
             ),
             $userOptions
         );
